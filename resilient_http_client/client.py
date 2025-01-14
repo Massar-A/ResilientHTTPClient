@@ -17,8 +17,10 @@ class ResilientHttpClient:
             try:
                 print("attempt number {}".format(attempts+1))
                 response = await self.client.request(method, url, **kwargs)
+                #Raise errors to handle them differently
                 response.raise_for_status()
                 return response
+            #Add 1 attempt if it is an allowed error to retry on
             except tuple(self.retry_on) as e:
                 attempts += 1
                 if attempts >= self.max_attempts:

@@ -37,7 +37,7 @@ async def test_retry_after_failures(method):
 
 @pytest.mark.asyncio
 @pytest.mark.parametrize("method", ["get", "post", "put", "patch", "delete"])
-async def test_retry_exceeds_limit(method):
+async def test_retry_exceeds_limit_of_attempts_connect_error(method):
     def mock_transport(request):
         nonlocal attempts
         attempts += 1
@@ -57,7 +57,7 @@ async def test_retry_exceeds_limit(method):
 
 @pytest.mark.asyncio
 @pytest.mark.parametrize("method", ["get", "post", "put", "patch", "delete"])
-async def test_retry_exceeds_limit_on_timeout(method):
+async def test_retry_exceeds_limit_of_attempts_timeout_error(method):
     def mock_transport(request):
         nonlocal attempts
         attempts += 1

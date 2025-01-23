@@ -1,5 +1,5 @@
 # Resilient HTTP Client :
-This is a small resilient HTTP Client that retries HTTP requests in case of an error.
+This is a small resilient HTTP Client that retries HTTP requests in case of an error. This client adds new features such as timeout personalization and selection of errors to retry on.
 ## Tutorial
 At first, make sure you have installed Python in your machine.
 To run the tests of the HTTP Client.
